@@ -13,3 +13,6 @@
 
 - python -m search.api
 
+# Endpoint
+
+- GET http://localhost:8000/flights/search
