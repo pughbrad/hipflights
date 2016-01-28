@@ -1,7 +1,13 @@
 from bottle import Bottle, response, run 
-#from aggregator import get_aggregated_results
 from aggregator import FlightAggregator
+#from threading import Thread
+import logging
 import json
+
+logging.basicConfig(
+        level=logging.DEBUG,
+        format='[%(levelname)s] (%(threadName)-10s) %(message)s',
+)
 
 app = Bottle()
 
@@ -15,7 +21,8 @@ source_urls = [
 
 
 @app.route("/flights/search", ["GET"])
-def test():
+def search():
+    logging.debug('/flights/search')
     response.content_type = "application/json"
     aggregator = FlightAggregator(source_urls)
     results = aggregator.search()
@@ -25,9 +32,15 @@ def test():
 def self_hosted_run():
     host = "0.0.0.0"
     port = 8000
-    run(app, host=host, port=port, reloader=True)
 
+    try:
+        run(app, host=host, port=port)
+    except KeyboardInterrupt as e:
+        print 'keyboard interrupt\n'
+
+
+def self_hosted_thread(host, port):
+        run(app, host=host, port=port)
 
 if __name__ == "__main__":
     self_hosted_run()
-
