@@ -1,6 +1,5 @@
 from bottle import Bottle, response, run 
 from aggregator import FlightAggregator
-#from threading import Thread
 import logging
 import json
 
