@@ -1,20 +1,19 @@
-# Flight Search API
+## Flight Search API
+[Interview code challenge from hipmunk](https://github.com/Hipmunk/hipproblems.git)
 
-# Installation
+### Installation
 
-* Assumes Python 2.7*
+_Assumes Python 2.7_  
 
 
-1. `git clone https://bitbucket.org/bradpugh/hipflights.git`
-or https://github.com/pughbrad/hipflights.git
-
+1. `git clone https://github.com/pughbrad/hipflights.git`
 2. `cd hipflights`
 3. `python setup.py develop`
 
-# Run
+## Run
 
-- python -m search.api
+* `python -m search.api`
 
-# Endpoint
+## Endpoint
 
-- GET http://localhost:8000/flights/search
+* `GET http://localhost:8000/flights/search`
